@@ -178,3 +178,4 @@ jobs:
           
           # Codexに処理させる
           codex --full-auto --quiet --model claude-sonnet-4-6 "$(cat pr_prompt.txt)"
+
