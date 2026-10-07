@@ -100,7 +100,7 @@ jobs:
           EOF
           
           # Codexに処理させる
-          codex --full-auto --quiet --model gpt-4o "$(cat prompt.txt)"
+          codex --full-auto --quiet --model gpt-4o --disable-response-storage "$(cat prompt.txt)"
           
       - name: Create PR
         env:
@@ -191,5 +191,5 @@ jobs:
           EOF
           
           # Codexに処理させる
-          codex --full-auto --quiet --model gpt-4o "$(cat pr_prompt.txt)"
+          codex --full-auto --quiet --model gpt-4o --disable-response-storage "$(cat pr_prompt.txt)"
 
