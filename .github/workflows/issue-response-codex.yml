@@ -32,6 +32,20 @@ jobs:
           && sudo apt update \
           && sudo apt install gh -y
           
+      - name: Configure codex provider
+        run: |
+          mkdir -p ~/.codex
+          cat > ~/.codex/config.toml << 'TOML'
+          [model]
+          provider = "labgw"
+
+          [model_providers.labgw]
+          name = "labgw"
+          base_url = "https://api.openlux.ai/v1"
+          env_key = "OPENAI_API_KEY"
+          wire_api = "chat"
+          TOML
+
       - name: Post Initial Comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
